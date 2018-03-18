@@ -1,52 +1,22 @@
-# IFCEbvd
-### IFCE Biblioteca Virtual Downloader
+# IFSPbvd
+### IFSP Biblioteca Virtual Downloader
 
-Ferramenta de download de livros da biblioteca virtual do IFCE. Baixa página a página como imagem e depois converte para pdf. **É necessário uma matricula válida do IFCE.**
+Ferramenta de download de livros da biblioteca virtual do IFSP. Baixa página a página como imagem e depois converte para pdf. **É necessário uma matricula válida do IFSP e acesso ao sistema SUAP.**
 
 ### sintaxe:
-**$ python ifcebvd.py [matricula] [id do livro]**
+**$ python ifspbvd.py [matricula] [senha] [id do livro]**
 
 ### Dependências
 1. Biblioteca Selenium, para automatizar a interação com a página web.
 
-**$ pip install -U selenium**
+2. Imagemagick, para juntar as imagens e montar o PDF (aqui você pode usar o que preferir).
 
-2. Para juntar as imagens e montar o PDF, escolha o pacote de seu agrado. No linux, minha escolha foi o *convert* do pacote Imagemagick. Para instalá-lo:
+3. Navegador Firefox (também pode usar o que preferir, apenas precisa modificar o caminho na linha 29).
 
-**$ sudo apt-get install imagemagick**
 
-Outras opções podem ser utilizada, apenas mudando o comando de saida na linha **71** do script.
+Obs 1: na linha 27 o código comentado põe o Firefox em modo Headless (o navegador não é exibido) porém prefiro manter desativado essa função pois as vezes a internet oscila durante o download das páginas, voltar pra anterior ou atualizar a página faz com que o download continue normalmente depois.
 
-3. Caso o browser a ser interagido seja o phantomJS
+Obs 2:  para mais informações veja a página do projeto original, eu apenas o modifiquei para funcionar no sistema do IFSP.
 
-**$ sudo apt-get install phantomjs**
-
-Senão, mudar a linha **21** para:
-
-**b=webdriver.Firefox()**
-
-```
-As versões do selenium a partir do v4.0.0-alpha.1 deprecaram o suporte a phantomJS, ao inves
-disto, pedem para que se user o chrome ou firefox em modo headless, conforme demonstrado a seguir:
-```
-
-```python
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-
-options = Options()
-options.add_argument('--headless')
-options.add_argument('--disable-gpu')
-driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=options)
-```
-
-**OSX**
-Todos os passos de instalação previamente descritos são, considerando que o brew estaá instalado:
-```
-pip install -U selenium
-brew install phantomjs
-brew install imagemagick
-```
-
-teste se git está funcionando kkk
-
+Obs 3: talvez para rodar no linux deva mudar a linha 110 para 
+```  os.system('rm *.jpg')```
