@@ -48,4 +48,5 @@ brew install phantomjs
 brew install imagemagick
 ```
 
+teste se git está funcionando kkk
 
