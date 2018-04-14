@@ -117,9 +117,9 @@ if __name__ == "__main__":
   else:
     print "Iniciando... aguarde..."
     matricula = sys.argv[1]
-    senha - sys.argv[2]
+    senha = sys.argv[2]
     livro = sys.argv[3]
-    _dump(matricula , matricula, livro)
+    _dump(matricula, senha, livro)
     _gerapdf(livro)
     _remove()
     print '\033[92mFinalizado. Livro convertido em PDF com sucesso!. Ate mais! :) \033[0m'
