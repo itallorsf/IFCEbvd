@@ -57,7 +57,7 @@ def _dump(matricula, senha, id_livro):
   print 'Gerando cookie de login para matricula %s...' % matricula
   b.get('http://ifsp.bv3.digitalpages.com.br/user_session/authentication_gateway?%s' % _hash(matricula))
   print 'Inicializando...'
-  b.get('http://ifce.bv3.digitalpages.com.br/users/publications/%s' % id_livro)
+  b.get('http://ifsp.bv3.digitalpages.com.br/users/publications/%s' % id_livro)
   print 'Obtendo informacoes para o livro %s...' % id_livro
   p_1 = 0
   while(p_1 == 0):
